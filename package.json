@@ -1,0 +1,28 @@
+{
+  "name": "react-intl-cms",
+  "version": "1.0.0",
+  "description": "a monorepo proof of concept for managing react internationalization from a cms ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mubarakshow/react-intl-cms.git"
+  },
+  "keywords": [
+    "cms",
+    "i18next",
+    "localization",
+    "internationalization",
+    "react",
+    "git",
+    "OAuth"
+  ],
+  "author": "mubarakshow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mubarakshow/react-intl-cms/issues"
+  },
+  "homepage": "https://github.com/mubarakshow/react-intl-cms#readme"
+}
