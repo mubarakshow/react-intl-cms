@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+
+type Lang = "en" | "fr";
 
 function App() {
+  const { t, i18n } = useTranslation();
+  const [lng, setLng] = useState<Lang>("en");
+  const handleClick = (lng: Lang) => {
+    i18n.changeLanguage(lng);
+    setLng(lng);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="p-12">
+      <div>
+        <h2 className="text-2xl text-gray-300">Mubarak Showole</h2>
+        <h3 className="text-4xl py-4 text-blue-600">
+          {t("welcome", { appName: "todo" })}
+        </h3>
+      </div>
+      <div className="space-x-4">
+        <button
+          className={`p-4 rounded-lg ${lng === "en" && "bg-green-100"}`}
+          onClick={() => handleClick("en")}
         >
-          Learn React
-        </a>
-      </header>
+          english
+        </button>
+        <button
+          className={`p-4 rounded-lg ${lng === "fr" && "bg-green-100"}`}
+          onClick={() => handleClick("fr")}
+        >
+          french
+        </button>
+      </div>
     </div>
   );
 }
