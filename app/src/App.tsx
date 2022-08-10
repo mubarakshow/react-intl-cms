@@ -18,6 +18,9 @@ function App() {
         <h3 className="text-4xl py-4 text-blue-600">
           {t("welcome", { appName: "todo" })}
         </h3>
+        <h3 className="text-4xl py-4 text-green-600">
+          {t("cur8_app", { ns: "cur8" })}
+        </h3>
       </div>
       <div className="space-x-4">
         <button
