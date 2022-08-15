@@ -1,3 +1,1 @@
- {
-    "welcome": "Welcome to my {{appName}} application"
- }
+{"welcome":"Welcome to my {{appName}} application","user_trap":"This is the trap users fall into"}

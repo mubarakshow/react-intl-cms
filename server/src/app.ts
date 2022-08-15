@@ -1,14 +1,25 @@
-const fs = require("fs");
-const express = require("express");
-const i18next = require("i18next");
-const HttpBackend = require("i18next-http-backend");
-const cors = require("cors");
+import fs from "fs";
+import express from "express";
+import i18next from "i18next";
+import HttpBackend from "i18next-http-backend";
+import cors from "cors";
+import path from "path";
+import { updateTranslation } from "./controllers/translation";
 
 const PORT = 8080;
 const app = express();
 
 app.use(cors());
-app.use("/locales", express.static(__dirname + "/locales"));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use("/locales", express.static(path.join(__dirname, "../locales")));
+
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to translation/copy management backend" });
+});
+
+app.put("/update-tr", updateTranslation);
 
 app.listen(PORT, () => {
   console.log(`Translations server listening on port ${PORT}`);
@@ -34,6 +45,7 @@ i18next.use(HttpBackend).init(
     },
   },
   (err, t) => {
+    if (err) console.log("Error loading translations...", err);
     createCur8Translations();
     console.log("i18next is ready...");
     console.log(t("welcome", { appName: "translation sever" }));
